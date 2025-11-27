@@ -1,26 +1,72 @@
-import "./Signup.css";
 import React, { useState } from "react";
-import axios from "axios";
+import { FaEnvelope, FaLock, FaUser, FaShoppingBag } from "react-icons/fa";
+import "./Signup.css";
 
-const Signup = () => {
-  const [user, setUser] = useState({ name: "", email: "", age: "" });
+function Signup() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
 
-  const handleSubmit = async () => {
-    const response = await axios.post("http://localhost:3000/users/add", user);
-    console.log("Response:", response.data);
+  const handleSubmit = () => {
+    console.log("Signup Data:", form);
   };
 
   return (
-    <div className="signup-container">
-      <h2>Signup</h2>
+    <div className="auth-container">
+      <div className="auth-card">
+        
+        <div className="auth-icon">
+          <FaShoppingBag size={30} color="white" />
+        </div>
 
-      <input placeholder="Enter  the email" onChange={(e) => setUser({ ...user, email: e.target.value })} />
-      <input placeholder="Enter  the password" onChange={(e) => setUser({ ...user, password: e.target.value })} />
-      <input placeholder="Enter the confirm password" onChange={(e) => setUser({ ...user, confirmpassword: e.target.value })} />
+        <h2 className="auth-title">Create Account</h2>
+        <p className="auth-subtitle">Start managing your products today</p>
 
-      <button onClick={handleSubmit}>Sign in</button>
+        {/* Name */}
+        <label>Full Name</label>
+        <div className="input-box">
+          <FaUser className="input-icon" />
+          <input
+            type="text"
+            placeholder="John Doe"
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
+        </div>
+
+        {/* Email */}
+        <label>Email Address</label>
+        <div className="input-box">
+          <FaEnvelope className="input-icon" />
+          <input
+            type="email"
+            placeholder="admin@example.com"
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+          />
+        </div>
+
+        {/* Password */}
+        <label>Password</label>
+        <div className="input-box">
+          <FaLock className="input-icon" />
+          <input
+            type="password"
+            placeholder="••••••••"
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
+          />
+        </div>
+
+        <button className="auth-btn" onClick={handleSubmit}>
+          Create Account
+        </button>
+
+        <p className="auth-footer">
+          Already have an account? <a href="/login">Log In</a>
+        </p>
+      </div>
     </div>
   );
-};
+}
 
 export default Signup;

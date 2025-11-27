@@ -1,59 +1,62 @@
 import { useState } from "react";
+import { FaEnvelope, FaLock, FaShoppingBag } from "react-icons/fa";
 import "./Login.css";
 
 function Login() {
-    const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ email: "", password: "" });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Login data:", form);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Login Data:", form);
+  };
 
-        // later:
-        // axios.post("/api/auth/login", form)
-    };
-
-    return (
-        <div style={styles.container}>
-            <h2>Login</h2>
-
-            <form onSubmit={handleSubmit} style={styles.form}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    style={styles.input}
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                />
-
-                <input
-                    type="password"
-                    placeholder="Password"
-                    style={styles.input}
-                    value={form.password}
-                    onChange={(e) => setForm({ ...form, password: e.target.value })}
-                />
-
-                <button style={styles.button}>Login</button>
-            </form>
-
-            <p>
-                Don't have an account? <a href="/signup">Sign Up</a>
-            </p>
+  return (
+    <div className="auth-container">
+      <div className="auth-card">
+        
+        {/* Top Logo Icon */}
+        <div className="auth-icon">
+          <FaShoppingBag size={30} color="white" />
         </div>
-    );
-}
 
-const styles = {
-    container: { width: "350px", margin: "50px auto", textAlign: "center" },
-    form: { display: "flex", flexDirection: "column", gap: "10px" },
-    input: { padding: "10px", borderRadius: "6px", border: "1px solid #ccc" },
-    button: {
-        padding: "10px",
-        backgroundColor: "#000",
-        color: "white",
-        border: "none",
-        borderRadius: "6px",
-    },
-};
+        <h2 className="auth-title">Welcome Back</h2>
+        <p className="auth-subtitle">Enter your details to access inventory</p>
+
+        <form onSubmit={handleSubmit}>
+
+          {/* Email */}
+          <label>Email Address</label>
+          <div className="input-box">
+            <FaEnvelope className="input-icon" />
+            <input
+              type="email"
+              placeholder="admin@example.com"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
+          </div>
+
+          {/* Password */}
+          <label>Password</label>
+          <div className="input-box">
+            <FaLock className="input-icon" />
+            <input
+              type="password"
+              placeholder="••••••••"
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+            />
+          </div>
+
+          <button className="auth-btn">Sign In</button>
+        </form>
+
+        <p className="auth-footer">
+          Don't have an account? <a href="/signup">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default Login;
