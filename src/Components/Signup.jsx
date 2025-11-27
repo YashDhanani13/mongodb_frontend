@@ -11,12 +11,13 @@ function Signup() {
 
   const handleSubmit = () => {
     console.log("Signup Data:", form);
+
   };
 
   return (
     <div className="auth-container">
       <div className="auth-card">
-        
+
         <div className="auth-icon">
           <FaShoppingBag size={30} color="white" />
         </div>
