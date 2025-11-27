@@ -1,0 +1,86 @@
+.product-page {
+  display: flex;
+  padding: 30px;
+  background: #f4f6fa;
+  gap: 40px;
+}
+
+/* LEFT FORM */
+.left-form {
+  width: 320px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.08);
+}
+
+.left-form input,
+.left-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+}
+
+.left-form button {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* RIGHT SIDE LIST */
+.right-list {
+  flex: 1;
+}
+
+.card-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.product-card {
+  width: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge {
+  background: #e0ecff;
+  color: #2563eb;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.promote-btn {
+  background: transparent;
+  color: purple;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #c53030;
+  font-size: 18px;
+}
